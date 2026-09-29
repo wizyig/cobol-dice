@@ -16,4 +16,24 @@ COBOL  = experimental / not yet validated
 まだ言えない: COBOL が観測の出どころ
 ```
 
-神社を COBOL に入れない。LICENSE は未決定（损造しない）。
+神社を COBOL に入れない。LICENSE は未決定（捏造しない）。
+
+## Available Tools
+
+| Tool | Input | Output |
+|---|---|---|
+| dice | sides=2..1000 | 1..sides |
+| coin | none | heads or tails |
+| timestamp | none | YYYYMMDDThhmmsscc |
+| echo | payload=1..80 | payload |
+
+## Error Vocabulary
+
+```text
+invalid sides
+invalid payload
+invalid tool
+invalid request
+```
+
+Recovery は観測列から定義する。LLM 内部状態は使わない。
