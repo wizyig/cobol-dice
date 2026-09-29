@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": ["request_id", "tool"],
+  "properties": {
+    "request_id": { "type": "string", "minLength": 1 },
+    "tool": { "enum": ["dice", "coin", "timestamp", "echo"] },
+    "sides": { "type": "integer", "minimum": 2, "maximum": 1000 },
+    "payload": { "type": "string", "minLength": 1, "maxLength": 80 }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "tool": { "const": "dice" } }, "required": ["tool"] },
+      "then": { "required": ["sides"] }
+    },
+    {
+      "if": { "properties": { "tool": { "const": "echo" } }, "required": ["tool"] },
+      "then": { "required": ["payload"] }
+    }
+  ]
+}

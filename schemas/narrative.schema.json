@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["class_name", "request_id", "text"],
+  "properties": {
+    "class_name": {
+      "enum": ["OBSERVATION", "ANOMALY", "RECOVERY"]
+    },
+    "request_id": { "type": "string", "minLength": 1 },
+    "text": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

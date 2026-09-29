@@ -1,0 +1,31 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["request_id", "status", "result"],
+      "properties": {
+        "request_id": { "type": "string", "minLength": 1 },
+        "status": { "const": "OK" },
+        "result": {}
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["request_id", "status", "message"],
+      "properties": {
+        "request_id": { "type": "string", "minLength": 1 },
+        "status": { "const": "ERROR" },
+        "message": {
+          "enum": [
+            "invalid sides",
+            "invalid payload",
+            "invalid tool",
+            "invalid request"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
